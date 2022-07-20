@@ -24,17 +24,13 @@ function App() {
         setColor('black')
     }, [modalState]);
     function generate_num(){
-        console.log(loRange, hiRange)
         let val = Math.floor(Math.random()*(hiRange-loRange+1)) + loRange;
-        console.log(loRange, hiRange, val);
         setNum(val)
     }
     
     function process_guess(e) {
         e.preventDefault();
         let val = Math.round(Number(guessRef.current.value));
-        console.log(loRange, hiRange)
-        console.log('guess number: ' + num);
         if (Number.isNaN(val) || guessRef.current.value == '') {
             setColor('red');
             setTimeout(() => setColor('gold'), 150);
@@ -105,12 +101,10 @@ function App() {
     function setHi(val){
         hiRange = val
         setHiState(val)
-        console.log(val, hiRange)
     }
     function setLo(val){
         loRange= val;
         setLoState(val)
-        console.log(val, loRange)
     }
 
     return (
