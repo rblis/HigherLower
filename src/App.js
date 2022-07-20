@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './index.css';
 import Modal from './Modal/Modal';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 
 function App() {
@@ -18,7 +18,11 @@ function App() {
     const [num, setNum] = useState(() => {
        return Math.floor(Math.random() * loRange) + hiRange;
     });
-
+    useEffect(() => {
+        guessRef.current.value = ''
+        setMsg('');
+        setColor('black')
+    }, [modalState]);
     function generate_num(){
         console.log(loRange, hiRange)
         let val = Math.floor(Math.random()*(hiRange-loRange+1)) + loRange;
@@ -121,6 +125,7 @@ function App() {
                     <p style={{margin: '1.25em'}}>{msg}</p>
                     <button type='button' className="vmarg btn btn-success" onClick={(e) => regenerate(e)}>Regenerate</button>
                     <button type='button' className="vmarg btn btn-primary" onClick={(e) => process_guess(e)}>Guess</button>
+                    <button type='button' className="vmarg btn btn-info" onClick={() => window.location.href = 'https://github.com/rblis/HigherLower'}>View Code</button>
                 </div>        
                 
             </div>
