@@ -32,7 +32,7 @@ function App() {
     
     function process_guess(e) {
         e.preventDefault();
-        let val = Number(guessRef.current.value);
+        let val = Math.round(Number(guessRef.current.value));
         console.log(loRange, hiRange)
         console.log('guess number: ' + num);
         if (Number.isNaN(val) || guessRef.current.value == '') {
