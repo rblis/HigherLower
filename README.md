@@ -1,0 +1,1 @@
+The main files that run this web-app are: src/App.js, src/index.css, & src/Modal/Modal.jsx
